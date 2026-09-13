@@ -7,41 +7,42 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: #1f242d; col
 .header {
   position: sticky; top: 0; background-color: #1f242d;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 15px 50px; border-bottom: 2px solid #323946; z-index: 1000;
+  padding: 15px 30px; border-bottom: 2px solid #323946; z-index: 1000;
 }
 .logo { font-size: 24px; font-weight: bold; }
 .navbar a { color: #fff; text-decoration: none; margin-left: 20px; font-size: 15px; }
 .navbar a:hover { color: #00eeff; }
-.menu-btn { display: none; font-size: 24px; cursor: pointer; color: #00eeff; }
+.menu-btn { display: none; font-size: 26px; cursor: pointer; color: #00eeff; }
 
-section { padding: 60px 50px; }
+/* Sections */
+section { padding: 60px 30px; }
 .section-title { text-align: center; font-size: 32px; margin-bottom: 35px; }
 
 /* Home */
-.home { display: flex; align-items: center; justify-content: space-between; min-height: 80vh; }
+.home { display: flex; align-items: center; justify-content: space-between; min-height: 80vh; gap: 30px; }
 .home-text { max-width: 550px; }
 .home-text .greeting { font-size: 20px; color: #cccccc; }
 .home-text h1 { font-size: 42px; margin: 10px 0; }
 .home-text h3 { font-size: 22px; margin-bottom: 15px; }
 .home-text .intro { color: #cccccc; margin-bottom: 25px; }
-.home-image img { width: 280px; height: 280px; border-radius: 50%; border: 4px solid #00eeff; box-shadow: 0px 0px 20px #00eeff; object-fit: cover; }
+.home-image img { width: 280px; height: 280px; border-radius: 50%; border: 4px solid #00eeff; box-shadow: 0px 0px 20px #00eeff; object-fit: cover; background:#323946; }
 
 /* Buttons */
-.btn-box { display: flex; gap: 15px; }
+.btn-box { display: flex; gap: 15px; flex-wrap: wrap; }
 .btn { display: inline-block; background-color: #00eeff; color: #1f242d; padding: 10px 22px; border-radius: 20px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; }
 .btn:hover { background-color: #00bcd4; box-shadow: 0px 0px 10px #00eeff; }
 .btn-outline { background-color: transparent; color: #00eeff; border: 2px solid #00eeff; }
 .btn-outline:hover { background-color: #00eeff; color: #1f242d; }
 
 /* Grid & Cards */
-.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
 .card { background-color: #323946; padding: 20px; border-radius: 10px; text-align: center; border: 1px solid #444c5a; transition: 0.3s; }
 .card:hover { border-color: #00eeff; transform: translateY(-5px); }
 .card h3 { margin-bottom: 10px; font-size: 18px; }
 .card p { font-size: 14px; color: #dddddd; }
 .card .year { display: inline-block; color: #00eeff; font-weight: bold; font-size: 13px; margin-bottom: 8px; }
 .card .school { color: #aaaaaa; font-size: 13px; margin-bottom: 10px; }
-.projects .card img { width: 100%; height: 140px; object-fit: cover; border-radius: 6px; margin-bottom: 12px; }
+.projects .card img { width: 100%; height: 140px; object-fit: cover; border-radius: 6px; margin-bottom: 12px; background:#1f242d; }
 .projects .tech { color: #00eeff; font-size: 12px; margin-bottom: 8px; }
 .testimonials .card h4 { margin-top: 15px; color: #00eeff; }
 .testimonials .card small { color: #aaaaaa; }
@@ -59,7 +60,6 @@ section { padding: 60px 50px; }
 .contact-form input, .contact-form textarea { width: 100%; padding: 12px; background-color: #323946; border: 1px solid #444c5a; border-radius: 6px; color: #fff; font-size: 14px; }
 .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #00eeff; }
 .contact-form button { align-self: center; width: 200px; }
-.form-note { text-align: center; margin-top: 15px; color: #888; font-size: 13px; }
 
 /* Footer */
 .footer { background-color: #161a20; text-align: center; padding: 30px 20px; font-size: 14px; border-top: 1px solid #323946; }
@@ -67,19 +67,19 @@ section { padding: 60px 50px; }
 .footer-social a { display: inline-block; width: 36px; height: 36px; line-height: 36px; text-align: center; border-radius: 50%; background-color: #1f242d; color: #00eeff; border: 1px solid #00eeff; margin: 0 6px; font-size: 15px; text-decoration: none; }
 .footer-social a:hover { background-color: #00eeff; color: #1f242d; }
 
-/* --- MOBILE SLIDE DOWN MENU --- */
+/* MOBILE - Hamburger Slide Down */
 @media (max-width: 900px) {
   .header { padding: 15px 20px; }
   .menu-btn { display: block; }
   .navbar {
     position: absolute; top: 100%; left: 0; width: 100%;
     background-color: #1f242d; border-top: 1px solid #323946;
-    flex-direction: column; padding: 10px 0;
-    display: none; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    flex-direction: column; padding: 0; display: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
   }
   .navbar.active { display: flex; animation: slideDown 0.3s ease; }
-  .navbar a { margin: 0; padding: 12px 30px; border-bottom: 1px solid #323946; }
-  .home { flex-direction: column; text-align: center; gap: 30px; }
+  .navbar a { margin: 0; padding: 14px 30px; border-bottom: 1px solid #323946; width: 100%; }
+  .home { flex-direction: column; text-align: center; }
   .btn-box { justify-content: center; }
   section { padding: 40px 20px; }
 }
